@@ -15,7 +15,7 @@ include("../middleware/adminMiddleware.php");
 
                 </div>
                 <div class="card-body">
-                    <form action="code.php" method="POST" enctype="multipart/form-data"></form>
+                    <form action="code.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <label for="">Name</label>
@@ -45,7 +45,7 @@ include("../middleware/adminMiddleware.php");
                             <button type="submit" class="btn btn-primary" name="add_category_btn">Save</button>
                         </div>
                     </div>
-                    
+                    </form>
                 </div>
             </div>
         </div>
