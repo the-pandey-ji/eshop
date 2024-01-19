@@ -31,6 +31,7 @@ include("../middleware/adminMiddleware.php");
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
+                            <input type="hidden" name="category_id" value=<?= $data['id'] ?>>
                             <label for="">Name</label>
                             <input type="text" name="name" value="<?= $data['name']?>" placeholder="Enter Category Name" class="form-control">
                         </div>
@@ -47,6 +48,7 @@ include("../middleware/adminMiddleware.php");
                             <input type="file" name="image" class="form-control">
                             <label for="">Current Image</label>
                             <br>
+                            <input type="hidden" name="old_image" value="<?= $data['image']?>">
                             <img src="../uploads/<?= $data['image']?>" height="50px" width="50px" alt="">
                         </div>
                         <br><br>
