@@ -34,13 +34,17 @@ include("../middleware/adminMiddleware.php");
                                     foreach( $category as $item)
                                     {
                                         ?>
-                            <tr>
-                                <td>1</td>
-                                <td>Shoes</td>
-                                <td>1</td>
-                                <td>Visible</td>
-                                <td>Edit</td>
-                            </tr>
+                                        <tr>
+                                            <td><?= $item['id']; ?></td>
+                                            <td><?= $item['name']; ?></td>
+                                            <td>
+                                                <img src="../uploads/" <?= $item['image']; ?> alt="<?= $item['name']; ?>">    
+                                            </td>
+                                            <td><?= $item['status'] == '0'? "Visible":"Hidden"; ?></td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary">Edit</a>    
+                                            </td>
+                                        </tr>
 
 
                                             <?php
