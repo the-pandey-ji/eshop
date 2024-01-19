@@ -45,7 +45,7 @@ include("../middleware/adminMiddleware.php");
                                             <td><?= $item['id']; ?></td>
                                             <td><?= $item['name']; ?></td>
                                             <td>
-                                                <img src="../uploads/" <?= $item['image']; ?> alt="<?= $item['name']; ?>">    
+                                                <img src="../uploads/<?= $item['image'];?>" width="50px" height="50px" alt="<?= $item['name']; ?>">    
                                             </td>
                                             <td><?= $item['status'] == '0'? "Visible":"Hidden"; ?></td>
                                             <td>
@@ -63,13 +63,7 @@ include("../middleware/adminMiddleware.php");
 
                                 }
                             ?>
-                            <tr>
-                                <td>1</td>
-                                <td>Shoes</td>
-                                <td>1</td>
-                                <td>Visible</td>
-                                <td>Edit</td>
-                            </tr>
+                          
                         </tbody>
                     </table>
                 </div>
