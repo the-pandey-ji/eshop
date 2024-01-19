@@ -85,7 +85,7 @@ else if(isset($_POST['delete_category_btn']))
 
     $category_querry = "SELECT * FROM categories WHERE id='$category_id'";
     $cate_query_run = mysqli_query($con, $category_querry);
-    $category_data = mysqli_fetch_array($cate_query_run);
+    $category_data = mysqli_fetch_array($cate_query_run);   
     $image = $category_data['image'];
 
     $delete_querry = "DELETE FROM categories WHERE id='$category_id'";
@@ -94,7 +94,7 @@ else if(isset($_POST['delete_category_btn']))
     {
         if(file_exists("../uploads/".$image))
         {
-            unlink("../uploads".$image);
+            unlink("../uploads/".$image);
         }
         redirect("category.php", "Deleted Successfully");
     }
