@@ -5,7 +5,7 @@ include("../config/dbcon.php");
 function getByID($table, $id)
 {   
     global $con;
-    $query = "Select * FROM $table WHERE id=$id";
+    $query = "SELECT * FROM $table WHERE id=$id";
     return $query_run = mysqli_query($con,$query);
 }
 
