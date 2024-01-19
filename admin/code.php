@@ -80,11 +80,22 @@ else if(isset($_POST['update_category_btn']))
 
 else if(isset($_POST['delete_category_btn']))
 {
+
     $category_id = mysqli_real_escape_string($con, $_POST['category_id']);
+
+    $category_querry = "SELECT * FROM categories WHERE id='$category_id'";
+    $cate_query_run = mysqli_query($con, $category_querry);
+    $category_data = mysqli_fetch_array($cate_query_run);
+    $image = $category_data['image'];
+
     $delete_querry = "DELETE FROM categories WHERE id='$category_id'";
     $delete_querry_run = mysqli_query($con, $delete_querry);
     if($delete_querry_run == true)
     {
+        if(file_exists("../uploads/".$image))
+        {
+            unlink("../uploads".$image);
+        }
         redirect("category.php", "Deleted Successfully");
     }
     else
