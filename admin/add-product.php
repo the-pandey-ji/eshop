@@ -21,7 +21,7 @@ include("../middleware/adminMiddleware.php");
                         <div class="col-md-12">
                             <label class = "mb-0" for="">Select Category</label>
                             <select class="form-select mb-2" aria-label="Select Category">
-                                <option selected>Select Category</option>
+                                <option name = "category_id" selected>Select Category</option>
                                 <?php
                                  $query = "SELECT * FROM categories";
                                  $categories = mysqli_query($con,$query);
@@ -77,8 +77,8 @@ include("../middleware/adminMiddleware.php");
                                 <input type="checkbox" name="status" >
                             </div>
                             <div class="col-md-3">
-                                <label class = "mb-0" for="">Popular</label><br>
-                                <input type="checkbox" name="popular" >
+                                <label class = "mb-0" for="">trending</label><br>
+                                <input type="checkbox" name="trending" >
                             </div>
                         </div>
                         <div class="col-md-12">

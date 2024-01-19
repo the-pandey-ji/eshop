@@ -105,5 +105,44 @@ else if(isset($_POST['delete_category_btn']))
 }
 
 else if(isset($_POST['add_product_btn']))
+{
+    $category_id = $_POST['category_id'];
+
+    $name = $_POST['name'];
+    $slug = $_POST['slug'];
+    $small_description = $_POST['small_description'];
+    $description = $_POST['description']; 
+    $original_price = $_POST['original_price']; 
+    $selling_price = $_POST['selling_price']; 
+    $qty = $_POST['qty']; 
+    $status = isset($_POST['status']) ? '1':'0' ;
+    $trending = isset($_POST['trending']) ? '1':'0' ;
+
+    $image = $_FILES['image']['name'];
+    $path = "../uploads";
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time().'.'.$image_ext;
+
+    if($name != "" && $description != ""  && $slug != ""){
+
+
+    $product_query = "INSERT INTO products (category_id,name,slug,small_description,description,original_price,selling_price,image,qty,status,trending) 
+    VALUES ('$category_id','$name', '$slug', '$small_description','description','$original_price','$selling_price','$filename','$qty', '$status', '$trending')";
+
+    $product_query_run = mysqli_query($con, $product_query);
+    if($product_query_run == true)
+    {
+        move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
+        redirect("add-product.php","Product Added Successfully");
+    }
+    else{
+        redirect("add-product.php","Something Went Wrong");
+    }
+    }
+    else
+    {
+        redirect("add-product.php","Name Slug and Description can not be Empty");
+    }
+}
 
 ?>
