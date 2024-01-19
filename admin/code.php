@@ -103,4 +103,7 @@ else if(isset($_POST['delete_category_btn']))
         redirect("category.php", "Something Went Wrong");
     }
 }
+
+else if(isset($_POST['add_product_btn']))
+
 ?>
