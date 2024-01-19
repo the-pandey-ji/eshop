@@ -16,7 +16,7 @@ include("../middleware/adminMiddleware.php");
 
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -27,6 +27,31 @@ include("../middleware/adminMiddleware.php");
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                $category = getAll("categories");
+                                if ($mysqli_num_rows($category) > 0)
+                                {
+                                    foreach( $category as $item)
+                                    {
+                                        ?>
+                            <tr>
+                                <td>1</td>
+                                <td>Shoes</td>
+                                <td>1</td>
+                                <td>Visible</td>
+                                <td>Edit</td>
+                            </tr>
+
+
+                                            <?php
+                                    }
+                                }
+                                else
+                                {
+                                    echo "No records found";
+
+                                }
+                            ?>
                             <tr>
                                 <td>1</td>
                                 <td>Shoes</td>
