@@ -141,7 +141,7 @@ else if(isset($_POST['add_product_btn']))
     }
     else
     {
-        redirect("add-product.php","Name Slug and Description can not be Empty");
+        redirect("add-product.php","All Fields are Mandetory");
     }
 }
 
