@@ -78,4 +78,18 @@ else if(isset($_POST['update_category_btn']))
     }
 }   
 
+else if(isset($_POST['delete_category_btn']))
+{
+    $category_id = mysqli_real_escape_string($con, $_POST['category_id']);
+    $delete_querry = "DELETE FROM categories WHERE id='$category_id'";
+    $delete_querry_run = mysqli_query($con, $delete_querry);
+    if($delete_querry_run == true)
+    {
+        redirect("category.php", "Deleted Successfully");
+    }
+    else
+    {
+        redirect("category.php", "Something Went Wrong");
+    }
+}
 ?>
