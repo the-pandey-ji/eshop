@@ -28,8 +28,15 @@ include("../middleware/adminMiddleware.php");
                         </thead>
                         <tbody>
                             <?php
-                                $category = getAll("categories");
-                                if ($mysqli_num_rows($category) > 0)
+                              
+                               $table="categories";
+                                $query = "Select * FROM $table";
+                                $query_run = mysqli_query($con,$query);
+                            
+                            
+                                $category = $query_run;
+                                // mysqli_num_rows($query_run);
+                                if (mysqli_num_rows($category) > 0)
                                 {
                                     foreach( $category as $item)
                                     {
