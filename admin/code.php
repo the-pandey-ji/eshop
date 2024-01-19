@@ -43,9 +43,14 @@ else if(isset($_POST['update_category_btn']))
 
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
+    
+
     if($new_image != "")
-    {
-        $update_filename = $new_image;
+    {   
+        // $update_filename = $new_image;
+        $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
+        $update_filename = time().'.'.$image_ext;
+        
 
     }
     else
@@ -60,7 +65,7 @@ else if(isset($_POST['update_category_btn']))
     {
         if($_FILES['image']['name'] != "")
         {
-            move_uploaded_file($_FILES["image"]["tmp_name"],$path.'/'.$new_image);
+            move_uploaded_file($_FILES["image"]["tmp_name"],$path.'/'.$update_filename);
             if(file_exists($path.'/'.$old_image))
             {
                 unlink($path.'/'.$old_image);
